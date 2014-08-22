@@ -33,7 +33,7 @@ command! EXProjectRefresh call exproject#refresh_current_folder()
 "}}}
 
 " default key mappings {{{1
-call exproject#register_hotkey( 1  , 1, '<F1>'            , ":call exproject#toggle_help()<CR>"                        , 'Toggle help.' )
+call exproject#register_hotkey( 1  , 1, '?'            , ":call exproject#toggle_help()<CR>"                        , 'Toggle help.' )
 call exproject#register_hotkey( 2  , 1, '<Space>'         , ":call exproject#toggle_zoom()<CR>"                        , 'Zoom in/out project window.' )
 call exproject#register_hotkey( 3  , 1, '<CR>'            , ":call exproject#confirm_select('')<CR>"                   , 'File: Open it. Folder: Fold in/out.' )
 call exproject#register_hotkey( 4  , 1, '<2-LeftMouse>'   , ":call exproject#confirm_select('')<CR>"                   , 'File: Open it. Folder: Fold in/out.' )
