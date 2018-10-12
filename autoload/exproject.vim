@@ -364,7 +364,7 @@ function exproject#init_buffer()
 
     if line('$') <= 1 && g:ex_project_enable_help
         silent call append ( 0, s:help_text )
-        silent exec '$d'
+        silent exec '$d _'
     else
         silent loadview
     endif
@@ -380,6 +380,11 @@ function s:on_close()
 endfunction
 
 function exproject#open_window()
+    let project_name = vimentry#get('project_name')
+    if project_name == ''
+        call ex#error("No exvim project.")
+        return
+    endif
     let winnr = winnr()
     if ex#window#check_if_autoclose(winnr)
         call ex#window#close(winnr)
@@ -533,6 +538,10 @@ function exproject#confirm_select(modifier)
         if fnamemodify(expand('%'),':p') != fnamemodify(fullpath,':p')
             silent exec editcmd.' '.fullpath
         endif
+    endif
+
+    if g:ex_project_stay_after_select == 1
+        call ex#window#goto_plugin_window()
     endif
 endfunction
 

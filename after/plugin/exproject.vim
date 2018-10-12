@@ -28,12 +28,12 @@ if exists ( ':NERDTreeToggle' ) && exists( ':EXProjectOpen' )
     endfunction
 
     " NERDTree to ex-project
-    call NERDTreeAddKeyMap ( {
-                \ 'key': '<C-Tab>',
-                \ 'callback': 'NERDTreeToEXProject',
-                \ 'quickhelpText': 'Switch to ex-project',
-                \ 'scope': 'all' 
-                \ } )
+    " call NERDTreeAddKeyMap ( {
+                " \ 'key': '<C-Tab>',
+                " \ 'callback': 'NERDTreeToEXProject',
+                " \ 'quickhelpText': 'Switch to ex-project',
+                " \ 'scope': 'all' 
+                " \ } )
 
     function! NERDTreeToEXProject()
         exec 'NERDTreeClose'
